@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo de Souza · Desenvolvedor Full Stack</title>
+<meta name="description" content="Desenvolvedor Full Stack no Rio de Janeiro. Já construí plataformas para escolas de música, apps e dashboards, do banco de dados à tela.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Gustavo de Souza · Desenvolvedor Full Stack">
+<meta property="og:description" content="Desenvolvedor Full Stack no Rio de Janeiro. Já construí plataformas para escolas de música, apps e dashboards, do banco de dados à tela.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+:root{--bg:#f5f7f3;--surface:#fbfcf9;--chip:#e4ebe0;--chip-2:#e9eee6;--ink:#1e2a22;--ink-2:#3d4a41;--muted:#5f6c63;--sage:#4f6b55;--sage-2:#6f8a72;--fill:#4f6b55;--line:rgba(30,42,34,.08);--line-2:rgba(30,42,34,.14);--line-3:rgba(30,42,34,.3);--btn:#1e2a22;--btn-fg:#f5f7f3;--btn-hover:#2b3b30;--header:rgba(245,247,243,.82);--overlay:rgba(30,42,34,.45);--well:#e9ece6;--shadow:30,42,34;--sel:#dce6d8;color-scheme:light}
+[data-theme="dark"]{--bg:#121814;--surface:#1a211c;--chip:#232d26;--chip-2:#1f2822;--ink:#eef2ec;--ink-2:#c6d0c8;--muted:#95a399;--sage:#9dbba3;--sage-2:#7a9a81;--fill:#5f7f67;--line:rgba(238,242,236,.09);--line-2:rgba(238,242,236,.16);--line-3:rgba(238,242,236,.32);--btn:#eef2ec;--btn-fg:#121814;--btn-hover:#dde5dd;--header:rgba(18,24,20,.8);--overlay:rgba(0,0,0,.6);--well:#0d110e;--shadow:0,0,0;--sel:#2c3a30;color-scheme:dark}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .45s ease,color .45s ease}
+a{color:var(--ink);text-decoration:none;transition:color .3s ease}
+a:hover{color:var(--sage)}
+::selection{background:var(--sel)}
+@keyframes riseIn{to{transform:translateY(0)}}
+@keyframes letterIn{0%{opacity:0;transform:translateY(.5em) rotate(2deg);filter:blur(10px)}55%{filter:blur(0)}100%{opacity:1;transform:none;filter:blur(0)}}
+@keyframes inkShimmer{0%,100%{color:var(--ink)}50%{color:var(--sage)}}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes lift{0%{transform:translateY(0)}35%{transform:translateY(-7px)}100%{transform:translateY(0)}}
+@keyframes fillSweep{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes arrowDrop{0%{transform:translateY(-6px);opacity:0}35%{opacity:1}100%{transform:translateY(6px);opacity:0}}
+@keyframes drawCheck{to{stroke-dashoffset:0}}
+@keyframes popIn{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes sheetIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes labelIn{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes dotPulse{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@keyframes ringOut{from{box-shadow:0 0 0 0 rgba(111,138,114,.55)}to{box-shadow:0 0 0 14px rgba(111,138,114,0)}}
+@keyframes sheen{from{transform:translateX(-120%) skewX(-18deg)}to{transform:translateX(260%) skewX(-18deg)}}
+@keyframes nudgeUp{0%,100%{transform:translateY(0)}30%{transform:translateY(-3px)}60%{transform:translateY(0)}}
+@media (max-width:640px){
+header{top:auto!important;bottom:max(12px,env(safe-area-inset-bottom))!important;position:fixed!important}
+header nav{padding:6px 6px!important;gap:6px!important;max-width:calc(100vw - 24px)!important;box-shadow:0 18px 40px -20px rgba(var(--shadow),.6)!important}
+[data-nav-links]{font-size:11px!important;letter-spacing:.04em!important;gap:0!important}
+[data-nav-links] a{padding:11px 8px!important}
+[data-nav-divider]{display:none!important}
+[data-nav-controls]{gap:6px!important}
+[data-nav-lang] > button{height:36px!important;padding:0 8px 0 7px!important;gap:5px!important}
+[data-lang-code]{display:none!important}
+[data-nav-theme]{width:36px!important;height:36px!important}
+[data-lang-menu]{top:auto!important;bottom:calc(100% + 12px)!important}
+[data-hero]{padding-top:40px!important;flex-direction:column-reverse!important;align-items:stretch!important;gap:26px!important}
+[data-hero-side]{flex:0 0 auto!important;width:100%!important;flex-direction:row!important;align-items:flex-end!important;gap:14px!important}
+[data-hero-photo]{width:112px!important;flex:none!important}
+[data-hero-social]{grid-template-columns:1fr!important;flex:0 1 180px!important;border-radius:20px!important}
+[data-top]{right:14px!important;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 70px)!important}
+[data-top-label]{display:none!important}
+[data-modal]{padding:12px!important}
+[data-footer] > div{padding-bottom:92px!important}
+}
+@media (max-width:400px){[data-nav-links]{font-size:10.5px!important;letter-spacing:.02em!important}[data-nav-links] a{padding:11px 6px!important}[data-nav-lang] > button{height:34px!important;padding:0 6px 0 6px!important}[data-nav-theme]{width:34px!important;height:34px!important}}
+</style>
+</helmet>
+<div lang="{{ langCode }}" style="position:relative;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);transition:background .45s ease,color .45s ease">
+
+<div aria-hidden="{{ topHidden }}" data-top style="position:fixed;right:24px;bottom:24px;z-index:30;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:{{ topOp }};transform:{{ topTf }};pointer-events:{{ topPe }};transition:opacity .45s ease,transform .6s cubic-bezier(.2,.9,.2,1.15)">
+  <span data-top-label style="font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap;transition:color .3s ease">{{ t.backToTop }}</span>
+  <span aria-hidden="true" data-top-label style="display:block;width:1px;height:10px;background:var(--line-3)"></span>
+  <button type="button" onClick="{{ toTop }}" onMouseEnter="{{ topHoverOn }}" onMouseLeave="{{ topHoverOff }}" aria-label="{{ t.backToTop }}" title="{{ t.backToTop }}" style="position:relative;width:58px;height:58px;border-radius:999px;border:0;padding:0;background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;box-shadow:0 1px 0 var(--line-2) inset,0 18px 36px -18px rgba(var(--shadow),.6);transition:transform .4s cubic-bezier(.2,.8,.2,1.2),box-shadow .35s ease,background .35s ease,color .35s ease" style-hover="transform:translateY(-3px) scale(1.04);box-shadow:0 24px 44px -18px rgba(var(--shadow),.75);background:var(--btn);color:var(--btn-fg)">{{ topIcon }}</button>
+</div>
+
+<header style="position:absolute;top:12px;left:0;right:0;z-index:20;display:flex;justify-content:center;padding:0 12px;pointer-events:none">
+  <nav aria-label="{{ t.navLabel }}" style="pointer-events:auto;position:relative;display:flex;align-items:center;gap:14px;max-width:100%;padding:8px 12px;border-radius:999px;background:var(--header);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid var(--line-2);box-shadow:0 10px 30px -22px rgba(var(--shadow),.35);transition:background .45s ease">
+    <div id="nav-links" data-nav-links onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;gap:4px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">
+      {{ hoverPill }}
+      <a id="nav-sobre" href="#sobre" onClick="{{ navTo }}" onMouseEnter="{{ hoverSobre }}" style="position:relative;color:var(--muted);padding:8px 12px;border-radius:999px;transition:color .3s ease" style-hover="color:var(--ink)">{{ t.navAbout }}</a>
+      <a id="nav-experiencia" href="#experiencia" onClick="{{ navTo }}" onMouseEnter="{{ hoverExperiencia }}" style="position:relative;color:var(--muted);padding:8px 12px;border-radius:999px;transition:color .3s ease" style-hover="color:var(--ink)">{{ t.navExperience }}</a>
+      <a id="nav-contato" href="#contato" onClick="{{ navTo }}" onMouseEnter="{{ hoverContato }}" style="position:relative;color:var(--muted);padding:8px 12px;border-radius:999px;transition:color .3s ease" style-hover="color:var(--ink)">{{ t.navContact }}</a>
+      {{ navIndicator }}
+    </div>
+    <div data-nav-controls style="display:flex;align-items:center;gap:12px">
+      <span aria-hidden="true" data-nav-divider style="width:1px;height:16px;background:var(--line-2)"></span>
+      <div data-nav-lang style="position:relative">
+        <button type="button" onClick="{{ toggleLang }}" aria-haspopup="listbox" aria-expanded="{{ langOpen }}" aria-label="{{ t.language }}" title="{{ t.language }}" style="display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 9px 0 5px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-family:inherit;font-size:11.5px;font-weight:500;letter-spacing:.08em;cursor:pointer;transition:border-color .3s ease" style-hover="border-color:var(--sage)">
+          {{ curFlagImg }}
+          <span data-lang-code>{{ curCode }}</span>
+          <span aria-hidden="true" style="display:block;width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:4px solid currentColor;opacity:.6;transform:{{ chevRot }};transition:transform .3s ease"></span>
+        </button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div role="listbox" aria-label="{{ t.language }}" data-lang-menu style="position:absolute;top:calc(100% + 10px);right:0;min-width:172px;padding:6px;border-radius:14px;background:var(--surface);border:1px solid var(--line-2);box-shadow:0 18px 40px -20px rgba(var(--shadow),.5);display:flex;flex-direction:column;gap:2px;animation:sheetIn .3s cubic-bezier(.2,.8,.2,1) both">
+            <button type="button" role="option" aria-selected="{{ isPt }}" onClick="{{ setPt }}" style="display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:0;border-radius:10px;background:{{ ptBg }};color:var(--ink);font-family:inherit;font-size:13px;font-weight:500;text-align:left;cursor:pointer;transition:background .25s ease" style-hover="background:var(--chip)"><img src="https://flagcdn.com/w40/br.png" alt="" width="18" height="18" onError="{{ hideImg }}" style="display:block;width:18px;height:18px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line-2)"><span style="flex:1">Português</span><span style="font-size:12px;color:var(--sage);opacity:{{ ptChk }}">✓</span></button>
+            <button type="button" role="option" aria-selected="{{ isEn }}" onClick="{{ setEn }}" style="display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:0;border-radius:10px;background:{{ enBg }};color:var(--ink);font-family:inherit;font-size:13px;font-weight:500;text-align:left;cursor:pointer;transition:background .25s ease" style-hover="background:var(--chip)"><img src="https://flagcdn.com/w40/us.png" alt="" width="18" height="18" onError="{{ hideImg }}" style="display:block;width:18px;height:18px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line-2)"><span style="flex:1">English</span><span style="font-size:12px;color:var(--sage);opacity:{{ enChk }}">✓</span></button>
+            <button type="button" role="option" aria-selected="{{ isEs }}" onClick="{{ setEs }}" style="display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:0;border-radius:10px;background:{{ esBg }};color:var(--ink);font-family:inherit;font-size:13px;font-weight:500;text-align:left;cursor:pointer;transition:background .25s ease" style-hover="background:var(--chip)"><img src="https://flagcdn.com/w40/es.png" alt="" width="18" height="18" onError="{{ hideImg }}" style="display:block;width:18px;height:18px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line-2)"><span style="flex:1">Español</span><span style="font-size:12px;color:var(--sage);opacity:{{ esChk }}">✓</span></button>
+          </div>
+        </sc-if>
+      </div>
+      <button type="button" onClick="{{ toggleTheme }}" aria-label="{{ t.toggleTheme }}" title="{{ t.toggleTheme }}" data-nav-theme style="width:30px;height:30px;flex:none;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .3s ease,border-color .3s ease,transform .3s ease" style-hover="border-color:var(--sage);transform:rotate(-15deg)">{{ themeIcon }}</button>
+    </div>
+  </nav>
+</header>
+
+<section id="inicio" data-screen-label="Início">
+  <div data-hero style="max-width:860px;margin:0 auto;padding:118px 24px 56px;display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px">
+    <div data-reveal="0" style="flex:1 1 360px;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
+      <p style="margin:0;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)">{{ t.eyebrow }}</p>
+      <h1 onMouseEnter="{{ nameHoverOn }}" onMouseLeave="{{ nameHoverOff }}" style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(38px,5.2vw,58px);line-height:1.08;letter-spacing:-.015em;color:var(--ink);text-wrap:balance;cursor:default">{{ heroTitle }}</h1>
+      <p style="margin:0;max-width:50ch;font-size:16px;line-height:1.65;color:var(--ink-2);text-wrap:pretty">{{ t.heroSub }}</p>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:6px">
+        <a href="{{ cvUrl }}" onClick="{{ downloadCv }}" onMouseEnter="{{ cvHoverOn }}" onMouseLeave="{{ cvHoverOff }}" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;min-width:176px;height:42px;padding:0 20px;border-radius:999px;background:var(--btn);color:var(--btn-fg);font-size:14px;font-weight:500;transition:background .35s ease,box-shadow .35s ease,transform .35s ease;cursor:pointer" style-hover="background:var(--btn-hover);color:var(--btn-fg);box-shadow:0 10px 24px -14px rgba(var(--shadow),.6);transform:translateY(-1px)">{{ cvButton }}</a>
+        <a href="#contato" onClick="{{ navTo }}" onMouseEnter="{{ ctaHoverOn }}" onMouseLeave="{{ ctaHoverOff }}" style="display:inline-flex;align-items:center;gap:6px;padding:6px 2px;color:var(--sage);font-size:14px;font-weight:500;transition:color .3s ease" style-hover="color:var(--ink)"><span>{{ t.contactCta }}</span>{{ ctaArrow }}</a>
+      </div>
+    </div>
+    <div data-reveal="1" data-hero-side style="flex:0 0 192px;width:192px;display:flex;flex-direction:column;gap:10px">
+      <div data-hero-photo style="aspect-ratio:4/5;border-radius:16px;overflow:hidden;position:relative">
+        <img src="img/gustavo-retrato.jpg" alt="Gustavo de Souza" width="832" height="1040" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
+      </div>
+      <div data-hero-social style="display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;border-radius:999px;background:var(--chip-2)">
+        <a href="https://www.linkedin.com/in/gustavosouzaz/" target="_blank" rel="noreferrer" aria-label="LinkedIn" style="position:relative;display:flex;align-items:center;justify-content:center;gap:7px;height:32px;padding:0 10px 0 5px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:0 1px 2px rgba(var(--shadow),.08);color:var(--ink);font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;transition:background .4s cubic-bezier(.2,.7,.2,1),border-color .4s ease,color .3s ease,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease" style-hover="background:#0a66c2;border-color:#0a66c2;color:#ffffff;transform:translateY(-2px) scale(1.03);box-shadow:0 14px 24px -12px rgba(10,102,194,.6)">
+          <span style="flex:none;width:22px;height:22px;border-radius:999px;background:#ffffff;display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.18)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/linkedin/linkedin-original.svg" alt="" width="12" height="12" onError="{{ hideImg }}" style="display:block;width:12px;height:12px"></span>
+          <span style="letter-spacing:.01em">LinkedIn</span>
+        </a>
+        <a href="https://github.com/gustavosouzaz" target="_blank" rel="noreferrer" aria-label="GitHub" style="position:relative;display:flex;align-items:center;justify-content:center;gap:7px;height:32px;padding:0 10px 0 5px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:0 1px 2px rgba(var(--shadow),.08);color:var(--ink);font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;transition:background .4s cubic-bezier(.2,.7,.2,1),border-color .4s ease,color .3s ease,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease" style-hover="background:var(--btn);border-color:var(--btn);color:var(--btn-fg);transform:translateY(-2px) scale(1.03);box-shadow:0 14px 24px -12px rgba(var(--shadow),.6)">
+          <span style="flex:none;width:22px;height:22px;border-radius:999px;background:#ffffff;display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.18)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/github/github-original.svg" alt="" width="13" height="13" onError="{{ hideImg }}" style="display:block;width:13px;height:13px"></span>
+          <span style="letter-spacing:.01em">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" data-screen-label="Sobre" style="border-top:1px solid var(--line);scroll-margin-top:64px">
+  <div data-reveal="0" style="max-width:860px;margin:0 auto;padding:56px 24px;display:flex;flex-direction:column;gap:22px">
+    <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;color:var(--ink)">{{ t.aboutTitle }}</h2>
+    <p style="margin:0;max-width:62ch;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,2.4vw,24px);line-height:1.4;color:var(--ink);text-wrap:pretty">{{ t.aboutLeadA }}<em>{{ t.aboutLeadB }}</em></p>
+    <p style="margin:0;max-width:66ch;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.aboutBody }}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 12px 6px 9px;border-radius:999px;background:var(--chip);color:var(--ink-2)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/typescript/typescript-original.svg" alt="" width="16" height="16" onError="{{ hideImg }}" style="display:block;width:16px;height:16px">TypeScript</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 12px 6px 9px;border-radius:999px;background:var(--chip);color:var(--ink-2)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/javascript/javascript-original.svg" alt="" width="16" height="16" onError="{{ hideImg }}" style="display:block;width:16px;height:16px">JavaScript</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 12px 6px 9px;border-radius:999px;background:var(--chip);color:var(--ink-2)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/nodejs/nodejs-original.svg" alt="" width="16" height="16" onError="{{ hideImg }}" style="display:block;width:16px;height:16px">Node.js</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 12px 6px 9px;border-radius:999px;background:var(--chip);color:var(--ink-2)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/docker/docker-original.svg" alt="" width="16" height="16" onError="{{ hideImg }}" style="display:block;width:16px;height:16px">Docker</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 12px 6px 9px;border-radius:999px;background:var(--chip);color:var(--ink-2)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/amazonwebservices/amazonwebservices-plain.svg" alt="" width="16" height="16" onError="{{ hideImg }}" style="display:block;width:16px;height:16px">AWS</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:6px 12px 6px 9px;border-radius:999px;background:var(--chip);color:var(--ink-2)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/git/git-original.svg" alt="" width="16" height="16" onError="{{ hideImg }}" style="display:block;width:16px;height:16px">Git</span>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia" data-screen-label="Experiência" style="border-top:1px solid var(--line);scroll-margin-top:64px">
+  <div style="max-width:860px;margin:0 auto;padding:56px 24px">
+    <h2 data-reveal="0" style="margin:0 0 8px;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;color:var(--ink)">{{ t.expTitle }}</h2>
+
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--line)">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px"><span style="color:var(--ink);font-weight:500">{{ t.j1Date }}</span><br>{{ t.j1Type }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:10px">
+        <div>
+          <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">{{ t.j1Role }}</h3>
+          <p style="margin:3px 0 0;font-size:14px;font-weight:500;color:var(--sage)">4tuna Startup Studio</p>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.j1Desc }}</p>
+      </div>
+    </article>
+
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--line)">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px"><span style="color:var(--ink);font-weight:500">{{ t.j2Date }}</span><br>{{ t.j2Type }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:10px">
+        <div>
+          <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">{{ t.j2Role }}</h3>
+          <p style="margin:3px 0 0;font-size:14px;font-weight:500;color:var(--sage)">4tuna Startup Studio</p>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.j2Desc }}</p>
+      </div>
+    </article>
+
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:26px 0 0">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px"><span style="color:var(--ink);font-weight:500">{{ t.j3Date }}</span><br>{{ t.j3Type }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:10px">
+        <div>
+          <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">{{ t.j3Role }}</h3>
+          <p style="margin:3px 0 0;font-size:14px;font-weight:500;color:var(--sage)">Compass UOL</p>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.j3Desc }}</p>
+        <a href="docs/certificado-compass-uol.pdf" onClick="{{ openCertificado }}" style="align-self:flex-start;margin-top:2px;font-size:14px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line-3);cursor:pointer" style-hover="color:var(--sage);border-bottom-color:var(--sage)">{{ t.viewCertificate }}</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="projetos" data-screen-label="Projetos" style="border-top:1px solid var(--line);scroll-margin-top:64px">
+  <div style="max-width:860px;margin:0 auto;padding:56px 24px">
+    <h2 data-reveal="0" style="margin:0 0 8px;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;color:var(--ink)">{{ t.projTitle }}</h2>
+
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--line)">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px">{{ t.p1Kind }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:8px">
+        <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">ScaleClock</h3>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.p1Desc }}</p>
+        <div style="display:flex;gap:18px;font-size:14px;font-weight:500">
+          <a href="https://play.google.com/store/apps/details?id=com.scaleclock&hl=pt_BR" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Play Store ↗</a>
+          <a href="https://apps.apple.com/br/app/scaleclock/id1464221197" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">App Store ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--line)">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px">{{ t.p2Kind }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:8px">
+        <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">{{ t.p2Name }}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.p2Desc }}</p>
+        <div style="display:flex;gap:8px 18px;flex-wrap:wrap;font-size:14px;font-weight:500">
+          <a href="https://oficinaorquestravoadora2026.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Oficina Orquestra Voadora ↗</a>
+          <a href="https://percusamba.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Percusamba ↗</a>
+          <a href="https://chorobatucada.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Choro Batucada ↗</a>
+          <a href="https://academiacrista.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Academia Cristã ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0 0">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px">{{ t.p3Kind }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:8px">
+        <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">{{ t.p3Name }}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.7;color:var(--ink-2);text-wrap:pretty">{{ t.p3Desc }}</p>
+        <div style="display:flex;gap:8px 18px;flex-wrap:wrap;font-size:14px;font-weight:500">
+          <a href="https://oficinaorquestravoadora2026.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Oficina Orquestra Voadora ↗</a>
+          <a href="https://percussaca.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Percussaca ↗</a>
+          <a href="https://chorobatucada.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Choro Batucada ↗</a>
+          <a href="https://academiacrista.55jam.com.br/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">Academia Cristã ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="formacao" data-screen-label="Formação" style="border-top:1px solid var(--line);scroll-margin-top:64px">
+  <div style="max-width:860px;margin:0 auto;padding:56px 24px">
+    <h2 data-reveal="0" style="margin:0 0 8px;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;color:var(--ink)">{{ t.eduTitle }}</h2>
+    <article data-reveal="0" style="display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0 0">
+      <div style="flex:0 0 160px;font-size:13px;line-height:1.6;color:var(--muted);padding-top:3px"><span style="color:var(--ink);font-weight:500">2021 – 2025</span><br>{{ t.eduPlace }}</div>
+      <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:6px">
+        <h3 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink)">{{ t.eduDegree }}</h3>
+        <p style="margin:0;font-size:14px;font-weight:500;color:var(--sage)">Centro Universitário IBMR</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="certificados" data-screen-label="Certificados" style="border-top:1px solid var(--line);scroll-margin-top:64px">
+  <div style="max-width:860px;margin:0 auto;padding:56px 24px">
+    <div data-reveal="0" style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:24px;line-height:1.2;color:var(--ink)">{{ t.certTitle }}</h2>
+        <p style="margin:0;font-size:14px;color:var(--muted)">{{ certSubtitle }}</p>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button type="button" onClick="{{ railPrev }}" aria-label="{{ t.prev }}" style="width:36px;height:36px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:16px;cursor:pointer;display:grid;place-items:center;transition:background .3s ease,border-color .3s ease,color .3s ease" style-hover="background:var(--btn);border-color:var(--btn);color:var(--btn-fg)">←</button>
+        <button type="button" onClick="{{ railNext }}" aria-label="{{ t.next }}" style="width:36px;height:36px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:16px;cursor:pointer;display:grid;place-items:center;transition:background .3s ease,border-color .3s ease,color .3s ease" style-hover="background:var(--btn);border-color:var(--btn);color:var(--btn-fg)">→</button>
+      </div>
+    </div>
+    <div data-reveal="1" id="cert-rail" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 4px 12px;margin:-4px -4px 0;overscroll-behavior-x:contain">
+      <sc-for list="{{ certs }}" as="c" hint-placeholder-count="4">
+        <button type="button" onClick="{{ c.open }}" style="flex:0 0 min(272px,78vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;padding:10px 10px 14px;border-radius:16px;border:1px solid var(--line-2);background:var(--surface);text-align:left;cursor:pointer;font-family:inherit;color:var(--ink);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease,border-color .3s ease" style-hover="transform:translateY(-3px);box-shadow:0 18px 32px -22px rgba(var(--shadow),.5);border-color:var(--sage)">
+          <div style="aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--chip-2);border:1px solid var(--line)">
+            <img src="{{ c.img }}" alt="{{ c.title }}" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;object-position:left top">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding:0 4px">
+            <span style="font-size:14px;font-weight:500;line-height:1.35;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ c.title }}</span>
+            <span style="font-size:12.5px;color:var(--muted)">{{ c.meta }}</span>
+          </div>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-screen-label="Contato" style="border-top:1px solid var(--line);scroll-margin-top:64px">
+  <div data-reveal="0" style="max-width:860px;margin:0 auto;padding:64px 24px 72px;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+    <h2 style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,40px);line-height:1.1;letter-spacing:-.015em;color:var(--ink)">{{ t.contactTitle }}</h2>
+    <p style="margin:0;max-width:48ch;font-size:15px;line-height:1.65;color:var(--ink-2);text-wrap:pretty">{{ t.contactSub }}</p>
+    <div style="display:flex;align-items:center;gap:12px 22px;flex-wrap:wrap;margin-top:6px">
+      <a href="mailto:gustavodsouzaa@gmail.com" style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(19px,2.6vw,24px);color:var(--ink);border-bottom:1px solid var(--line-3);padding-bottom:1px;word-break:break-all" style-hover="color:var(--sage);border-bottom-color:var(--sage)">gustavodsouzaa@gmail.com</a>
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+        <a href="{{ gmailUrl }}" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px 0 6px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:12.5px;font-weight:500;white-space:nowrap;transition:background .3s ease,border-color .3s ease,color .3s ease,transform .3s ease,box-shadow .3s ease" style-hover="background:#ea4335;border-color:#ea4335;color:#ffffff;transform:translateY(-1px);box-shadow:0 10px 18px -12px rgba(234,67,53,.55)"><span style="flex:none;width:20px;height:20px;border-radius:999px;background:#ffffff;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.12)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/google/google-original.svg" alt="" width="11" height="11" onError="{{ hideImg }}" style="display:block;width:11px;height:11px"></span>{{ t.openGmail }}</a>
+        <a href="{{ outlookUrl }}" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px 0 6px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:12.5px;font-weight:500;white-space:nowrap;transition:background .3s ease,border-color .3s ease,color .3s ease,transform .3s ease,box-shadow .3s ease" style-hover="background:#0f6cbd;border-color:#0f6cbd;color:#ffffff;transform:translateY(-1px);box-shadow:0 10px 18px -12px rgba(15,108,189,.55)"><span style="flex:none;width:20px;height:20px;border-radius:999px;background:#ffffff;display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.12)"><img src="https://cdn.jsdelivr.net/npm/devicon@2.18.0/icons/azure/azure-original.svg" alt="" width="11" height="11" onError="{{ hideImg }}" style="display:block;width:11px;height:11px"></span>{{ t.openOutlook }}</a>
+        <button type="button" onClick="{{ copyEmail }}" style="display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);font-family:inherit;font-size:12.5px;font-weight:500;white-space:nowrap;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease,transform .3s ease" style-hover="background:var(--btn);border-color:var(--btn);color:var(--btn-fg);transform:translateY(-1px)">{{ copyLabel }}</button>
+      </div>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:10px;font-size:14px;font-weight:500">
+      <a href="https://www.linkedin.com/in/gustavosouzaz/" target="_blank" rel="noreferrer" style="color:var(--muted)" style-hover="color:var(--ink)">LinkedIn ↗</a>
+      <a href="https://github.com/gustavosouzaz" target="_blank" rel="noreferrer" style="color:var(--muted)" style-hover="color:var(--ink)">GitHub ↗</a>
+      <a href="{{ cvUrl }}" onClick="{{ askCv }}" style="color:var(--muted);cursor:pointer" style-hover="color:var(--ink)">{{ t.cvLink }}</a>
+    </div>
+  </div>
+</section>
+
+<footer data-footer style="margin-top:auto;border-top:1px solid var(--line)">
+  <div style="max-width:860px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 24px;font-size:13px;color:var(--muted)">
+    <span>© 2026 Gustavo de Souza</span>
+    <span>{{ t.footerPlace }}</span>
+  </div>
+</footer>
+
+<sc-if value="{{ cvAsk }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCv }}" data-modal style="position:fixed;inset:0;z-index:60;background:var(--overlay);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+    <div onClick="{{ stop }}" role="dialog" aria-modal="true" aria-label="{{ t.cvAskTitle }}" style="width:min(400px,100%);background:var(--surface);border-radius:20px;padding:26px 26px 22px;box-sizing:border-box;box-shadow:0 30px 80px -30px rgba(var(--shadow),.6);display:flex;flex-direction:column;gap:18px;animation:sheetIn .45s cubic-bezier(.2,.8,.2,1) both">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div aria-hidden="true" style="flex:none;width:46px;height:58px;border-radius:8px 14px 8px 8px;background:var(--chip);position:relative;overflow:hidden">
+          <div style="position:absolute;right:0;top:0;width:14px;height:14px;background:var(--surface);border-bottom-left-radius:8px"></div>
+          <div style="position:absolute;left:10px;top:20px;width:22px;height:3px;border-radius:2px;background:var(--sage)"></div>
+          <div style="position:absolute;left:10px;top:28px;width:26px;height:3px;border-radius:2px;background:var(--sage);opacity:.45"></div>
+          <div style="position:absolute;left:10px;top:36px;width:18px;height:3px;border-radius:2px;background:var(--sage);opacity:.45"></div>
+          <div style="position:absolute;left:10px;top:44px;width:24px;height:3px;border-radius:2px;background:var(--sage);opacity:.45"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <p style="margin:0;font-family:'DM Serif Display',Georgia,serif;font-size:21px;line-height:1.2;color:var(--ink)">{{ t.cvAskTitle }}</p>
+          <p style="margin:0;font-size:13px;color:var(--muted)">{{ t.cvAskMeta }}</p>
+        </div>
+      </div>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink-2);text-wrap:pretty">{{ t.cvAskBodyA }}<a href="https://www.linkedin.com/in/gustavosouzaz/" target="_blank" rel="noreferrer" style="color:var(--sage);border-bottom:1px solid var(--line-3)" style-hover="color:var(--ink);border-bottom-color:var(--ink)">LinkedIn</a>{{ t.cvAskBodyB }}</p>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <a href="{{ cvUrl }}" onClick="{{ downloadCv }}" onMouseEnter="{{ cvHoverOn }}" onMouseLeave="{{ cvHoverOff }}" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;min-width:176px;height:42px;padding:0 20px;border-radius:999px;background:var(--btn);color:var(--btn-fg);font-size:14px;font-weight:500;transition:background .35s ease,box-shadow .35s ease,transform .35s ease;cursor:pointer" style-hover="background:var(--btn-hover);color:var(--btn-fg);box-shadow:0 10px 24px -14px rgba(var(--shadow),.6);transform:translateY(-1px)">{{ cvButton }}</a>
+        <button type="button" onClick="{{ closeCv }}" style="border:0;background:none;padding:8px 4px;font-family:inherit;font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;transition:color .3s ease" style-hover="color:var(--ink)">{{ t.notNow }}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ docOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeDoc }}" data-modal style="position:fixed;inset:0;z-index:50;background:var(--overlay);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px">
+    <div onClick="{{ stop }}" role="dialog" aria-modal="true" style="width:min(900px,100%);height:min(86vh,1100px);display:flex;flex-direction:column;background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(var(--shadow),.6)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 14px 12px 20px;border-bottom:1px solid var(--line)">
+        <span style="font-family:'DM Serif Display',Georgia,serif;font-size:17px;color:var(--ink)">{{ docTitle }}</span>
+        <div style="display:flex;align-items:center;gap:18px;font-size:13px;font-weight:500">
+          <a href="{{ docPdf }}" target="_blank" rel="noreferrer" style="color:var(--muted)" style-hover="color:var(--ink)">{{ t.openPdf }}</a>
+          <button type="button" onClick="{{ closeDoc }}" aria-label="{{ t.close }}" style="width:32px;height:32px;border:0;border-radius:999px;background:var(--chip);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;display:grid;place-items:center">×</button>
+        </div>
+      </div>
+      <sc-if value="{{ docIsImage }}" hint-placeholder-val="{{ false }}">
+        <div style="flex:1;min-height:0;overflow:auto;background:var(--well);display:flex;align-items:flex-start;justify-content:center;padding:20px">{{ docImg }}</div>
+      </sc-if>
+      <sc-if value="{{ docIsPdf }}" hint-placeholder-val="{{ false }}">
+        <iframe src="{{ docUrl }}" title="{{ docTitle }}" style="flex:1;width:100%;border:0;background:var(--well)"></iframe>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Gustavo de Souza&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Início&quot;},&quot;cvUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;docs/curriculo-gustavo-de-souza.pdf&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Início&quot;},&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Movimento&quot;}}">
+class Component extends DCLogic {
+  state = {
+    doc: null, cv: 'idle', cvHover: false, cvAsk: false,
+    // Every visit opens in the light theme (ignores the OS preference); the toggle only lasts for the visit.
+    theme: 'light',
+    lang: (() => { try { const s = localStorage.getItem('gs-lang'); if (['pt', 'en', 'es'].includes(s)) return s; } catch (e) {} const n = (navigator.language || 'pt').slice(0, 2).toLowerCase(); return ['pt', 'en', 'es'].includes(n) ? n : 'pt'; })()
+  };
+  dict() {
+    if (this._T) return this._T;
+    this._T = {
+      pt: {
+        code: 'pt-BR', navLabel: 'Navegação principal', backToTop: 'Voltar ao topo', language: 'Idioma', navAbout: 'Sobre', navExperience: 'Experiência', navContact: 'Contato', toggleTheme: 'Alternar tema claro/escuro',
+        eyebrow: 'Desenvolvedor Full Stack · Rio de Janeiro',
+        heroSub: 'Gosto de transformar ideias em produtos que funcionam de verdade, do banco de dados à tela. Já construí plataformas para escolas de música, apps e dashboards, cuidando do back-end e da experiência de quem usa.',
+        cvIdle: 'Baixar currículo', cvLoading: 'Preparando', cvDone: 'Pronto!', cvMissing: 'Currículo em breve', contactCta: 'Entrar em contato',
+        aboutTitle: 'Sobre', aboutLeadA: 'Sou desenvolvedor Full Stack, formado em Análise e Desenvolvimento de Sistemas pelo Centro Universitário IBMR, na Barra da Tijuca, ', aboutLeadB: 'no Rio de Janeiro, onde também moro.',
+        aboutBody: 'Tenho interesse por tecnologia há bastante tempo e comecei desenvolvendo meus primeiros sites por meio de cursos e estudos independentes. Hoje tenho experiência com APIs RESTful, modelagem de dados, regras de negócio e criação de interfaces para aplicações web e mobile, sempre em conjunto com a equipe.',
+        expTitle: 'Experiência',
+        j1Date: 'jan. 2026 – out. 2026', j1Type: 'Tempo integral · Remoto', j1Role: 'Desenvolvedor Full Stack Júnior',
+        j1Desc: 'Desenvolvimento de aplicações web e mobile, no front-end e no back-end: APIs, modelagem de dados, regras de negócio e interfaces para aplicações do segmento musical. Participei também de uma plataforma de dashboard financeiro em React e TypeScript, da manutenção de sistemas existentes e da configuração dos ambientes de desenvolvimento, homologação e produção.',
+        j2Date: 'set. 2025 – jan. 2026', j2Type: 'Meio período · Remoto', j2Role: 'Estagiário em desenvolvimento',
+        j2Desc: 'Desenvolvimento e manutenção de aplicações web voltadas à educação musical, contribuindo para plataformas de aprendizagem e ambientes digitais para escolas de música. Apoio no desenvolvimento de interfaces, implementação de funcionalidades e manutenção de sistemas, em conjunto com a equipe.',
+        j3Date: 'abr. 2025 – out. 2025', j3Type: 'Estágio · Remoto', j3Role: 'Estagiário Back-end (Node.js) · AWS Cloud',
+        j3Desc: 'Estágio com trilha técnica estruturada e desafios práticos, com foco em Node.js e computação em nuvem. Desenvolvi APIs REST com Node.js e Docker, implementei autenticação e boas práticas de segurança web, utilizei Git para versionamento e trabalhei com metodologias ágeis. Também estudei e pratiquei fundamentos da AWS, com preparação para certificação.',
+        viewCertificate: 'Ver certificado',
+        projTitle: 'Projetos', p1Kind: 'Mobile · iOS e Android', p1Desc: 'Aplicativo de escalas musicais para estudantes e músicos, disponível na Play Store e na App Store.',
+        p2Kind: 'Web · React e TypeScript', p2Name: 'Dashboard financeiro', p2Desc: 'Plataforma de dashboard financeiro desenvolvida na 4tuna Startup Studio.',
+        p3Kind: 'Web · Node.js e React', p3Name: 'Plataformas de ensino musical', p3Desc: 'Plataformas de aprendizagem e ambientes digitais para escolas de música: APIs, regras de negócio e interfaces.',
+        eduTitle: 'Formação', eduPlace: 'Rio de Janeiro', eduDegree: 'Tecnólogo em Análise e Desenvolvimento de Sistemas', viewDiploma: 'Ver diploma',
+        certTitle: 'Certificados', certSub: '{n} cursos e certificações · clique para ampliar', duration: 'Duração', prev: 'Anterior', next: 'Próximo',
+        contactTitle: 'Vamos conversar?', contactSub: 'Aberto a oportunidades remotas, híbridas ou presenciais.', openGmail: 'Abrir no Gmail', openOutlook: 'Abrir no Outlook', copyEmail: 'Copiar e-mail', copied: 'Copiado ✓', cvLink: 'Currículo', mailSubject: 'Contato pelo portfólio',
+        footerPlace: 'Rio de Janeiro, Brasil',
+        cvAskTitle: 'Levar meu currículo?', cvAskMeta: 'Arquivo PDF · leitura de 2 minutos', cvAskBodyA: 'Um resumo da minha trajetória, formação e stack. Se preferir, meu ', cvAskBodyB: ' tem a versão sempre atualizada.', notNow: 'Agora não',
+        openPdf: 'Abrir PDF ↗', close: 'Fechar', diplomaTitle: 'Diploma · Centro Universitário IBMR', uolCertTitle: 'Certificado · Compass UOL',
+        term2: '2024.2', months: ['jan.', 'fev.', 'mar.', 'abr.', 'mai.', 'jun.', 'jul.', 'ago.', 'set.', 'out.', 'nov.', 'dez.']
+      },
+      en: {
+        code: 'en', navLabel: 'Main navigation', backToTop: 'Back to top', language: 'Language', navAbout: 'About', navExperience: 'Experience', navContact: 'Contact', toggleTheme: 'Toggle light/dark theme',
+        eyebrow: 'Full Stack Developer · Rio de Janeiro',
+        heroSub: 'I like turning ideas into products that actually work, from the database to the screen. I have built platforms for music schools, apps and dashboards, taking care of both the back end and the experience of the people using them.',
+        cvIdle: 'Download CV', cvLoading: 'Preparing', cvDone: 'Done!', cvMissing: 'CV coming soon', contactCta: 'Get in touch',
+        aboutTitle: 'About', aboutLeadA: 'I am a Full Stack developer with a degree in Systems Analysis and Development from Centro Universitário IBMR, in Barra da Tijuca, ', aboutLeadB: 'Rio de Janeiro, where I also live.',
+        aboutBody: 'I have been into technology for a long time and started out building my first websites through courses and self-study. Today I have experience with RESTful APIs, data modeling, business rules and building interfaces for web and mobile applications, always working closely with the team.',
+        expTitle: 'Experience',
+        j1Date: 'Jan 2026 – Oct 2026', j1Type: 'Full-time · Remote', j1Role: 'Junior Full Stack Developer',
+        j1Desc: 'Web and mobile development across the front end and back end: APIs, data modeling, business rules and interfaces for music-industry applications. I also worked on a financial dashboard platform in React and TypeScript, maintained existing systems and set up the development, staging and production environments.',
+        j2Date: 'Sep 2025 – Jan 2026', j2Type: 'Part-time · Remote', j2Role: 'Software Development Intern',
+        j2Desc: 'Development and maintenance of web applications for music education, contributing to learning platforms and digital environments for music schools. Supported interface development, feature implementation and system maintenance together with the team.',
+        j3Date: 'Apr 2025 – Oct 2025', j3Type: 'Internship · Remote', j3Role: 'Back-end Intern (Node.js) · AWS Cloud',
+        j3Desc: 'Internship with a structured technical track and hands-on challenges focused on Node.js and cloud computing. I built REST APIs with Node.js and Docker, implemented authentication and web security best practices, used Git for version control and worked with agile methodologies. I also studied and practiced AWS fundamentals while preparing for certification.',
+        viewCertificate: 'View certificate',
+        projTitle: 'Projects', p1Kind: 'Mobile · iOS and Android', p1Desc: 'Musical scales app for students and musicians, available on the Play Store and the App Store.',
+        p2Kind: 'Web · React and TypeScript', p2Name: 'Financial dashboard', p2Desc: 'Financial dashboard platform built at 4tuna Startup Studio.',
+        p3Kind: 'Web · Node.js and React', p3Name: 'Music education platforms', p3Desc: 'Learning platforms and digital environments for music schools: APIs, business rules and interfaces.',
+        eduTitle: 'Education', eduPlace: 'Rio de Janeiro', eduDegree: 'Technologist Degree (Associate) in Systems Analysis and Development', viewDiploma: 'View diploma',
+        certTitle: 'Certificates', certSub: '{n} courses and certifications · click to enlarge', duration: 'Duration', prev: 'Previous', next: 'Next',
+        contactTitle: "Let's talk", contactSub: 'Open to remote, hybrid or on-site opportunities.', openGmail: 'Open in Gmail', openOutlook: 'Open in Outlook', copyEmail: 'Copy email', copied: 'Copied ✓', cvLink: 'CV', mailSubject: 'Contact from your portfolio',
+        footerPlace: 'Rio de Janeiro, Brazil',
+        cvAskTitle: 'Take my CV with you?', cvAskMeta: 'PDF file · 2-minute read', cvAskBodyA: 'A summary of my path, education and stack. If you prefer, my ', cvAskBodyB: ' always has the latest version.', notNow: 'Not now',
+        openPdf: 'Open PDF ↗', close: 'Close', diplomaTitle: 'Diploma · Centro Universitário IBMR', uolCertTitle: 'Certificate · Compass UOL',
+        term2: '2nd semester of 2024', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      es: {
+        code: 'es', navLabel: 'Navegación principal', backToTop: 'Volver arriba', language: 'Idioma', navAbout: 'Sobre mí', navExperience: 'Experiencia', navContact: 'Contacto', toggleTheme: 'Cambiar tema claro/oscuro',
+        eyebrow: 'Desarrollador Full Stack · Río de Janeiro',
+        heroSub: 'Me gusta convertir ideas en productos que funcionan de verdad, de la base de datos a la pantalla. He construido plataformas para escuelas de música, apps y dashboards, cuidando tanto el back-end como la experiencia de quien los usa.',
+        cvIdle: 'Descargar currículum', cvLoading: 'Preparando', cvDone: '¡Listo!', cvMissing: 'Currículum próximamente', contactCta: 'Hablemos',
+        aboutTitle: 'Sobre mí', aboutLeadA: 'Soy desarrollador Full Stack, graduado en Análisis y Desarrollo de Sistemas por el Centro Universitário IBMR, en Barra da Tijuca, ', aboutLeadB: 'en Río de Janeiro, donde también vivo.',
+        aboutBody: 'Me interesa la tecnología desde hace mucho tiempo y empecé creando mis primeros sitios web con cursos y estudio independiente. Hoy tengo experiencia con APIs RESTful, modelado de datos, reglas de negocio y creación de interfaces para aplicaciones web y móviles, siempre en conjunto con el equipo.',
+        expTitle: 'Experiencia',
+        j1Date: 'ene. 2026 – oct. 2026', j1Type: 'Tiempo completo · Remoto', j1Role: 'Desarrollador Full Stack Junior',
+        j1Desc: 'Desarrollo de aplicaciones web y móviles, en front-end y back-end: APIs, modelado de datos, reglas de negocio e interfaces para aplicaciones del sector musical. También participé en una plataforma de dashboard financiero en React y TypeScript, en el mantenimiento de sistemas existentes y en la configuración de los entornos de desarrollo, staging y producción.',
+        j2Date: 'sept. 2025 – ene. 2026', j2Type: 'Medio tiempo · Remoto', j2Role: 'Pasante de desarrollo',
+        j2Desc: 'Desarrollo y mantenimiento de aplicaciones web orientadas a la educación musical, contribuyendo a plataformas de aprendizaje y entornos digitales para escuelas de música. Apoyo en el desarrollo de interfaces, implementación de funcionalidades y mantenimiento de sistemas, junto con el equipo.',
+        j3Date: 'abr. 2025 – oct. 2025', j3Type: 'Pasantía · Remoto', j3Role: 'Pasante Back-end (Node.js) · AWS Cloud',
+        j3Desc: 'Pasantía con una ruta técnica estructurada y desafíos prácticos, enfocada en Node.js y computación en la nube. Desarrollé APIs REST con Node.js y Docker, implementé autenticación y buenas prácticas de seguridad web, usé Git para el versionado y trabajé con metodologías ágiles. También estudié y practiqué fundamentos de AWS, preparándome para la certificación.',
+        viewCertificate: 'Ver certificado',
+        projTitle: 'Proyectos', p1Kind: 'Móvil · iOS y Android', p1Desc: 'Aplicación de escalas musicales para estudiantes y músicos, disponible en Play Store y App Store.',
+        p2Kind: 'Web · React y TypeScript', p2Name: 'Dashboard financiero', p2Desc: 'Plataforma de dashboard financiero desarrollada en 4tuna Startup Studio.',
+        p3Kind: 'Web · Node.js y React', p3Name: 'Plataformas de enseñanza musical', p3Desc: 'Plataformas de aprendizaje y entornos digitales para escuelas de música: APIs, reglas de negocio e interfaces.',
+        eduTitle: 'Formación académica', eduPlace: 'Río de Janeiro', eduDegree: 'Tecnólogo en Análisis y Desarrollo de Sistemas', viewDiploma: 'Ver diploma',
+        certTitle: 'Certificados', certSub: '{n} cursos y certificaciones · haz clic para ampliar', duration: 'Duración', prev: 'Anterior', next: 'Siguiente',
+        contactTitle: '¿Hablamos?', contactSub: 'Abierto a oportunidades remotas, híbridas o presenciales.', openGmail: 'Abrir en Gmail', openOutlook: 'Abrir en Outlook', copyEmail: 'Copiar correo', copied: 'Copiado ✓', cvLink: 'Currículum', mailSubject: 'Contacto desde tu portafolio',
+        footerPlace: 'Río de Janeiro, Brasil',
+        cvAskTitle: '¿Te llevas mi currículum?', cvAskMeta: 'Archivo PDF · lectura de 2 minutos', cvAskBodyA: 'Un resumen de mi trayectoria, formación y stack. Si prefieres, mi ', cvAskBodyB: ' tiene la versión siempre actualizada.', notNow: 'Ahora no',
+        openPdf: 'Abrir PDF ↗', close: 'Cerrar', diplomaTitle: 'Diploma · Centro Universitário IBMR', uolCertTitle: 'Certificado · Compass UOL',
+        term2: '2.º semestre de 2024', months: ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.']
+      }
+    };
+    return this._T;
+  }
+  t() { return this.dict()[this.state.lang] || this.dict().pt; }
+  setLang(lang) { this.setState({ lang, langOpen: false }); try { localStorage.setItem('gs-lang', lang); } catch (e) {} }
+  setTheme(theme) { this.setState({ theme }); }
+  applyTheme() { document.documentElement.setAttribute('data-theme', this.state.theme); }
+  // Smooth-scroll a nav link's target so the section's top edge sits exactly under the sticky header.
+  // Offset below the floating capsule where a section's top should land.
+  // The capsule scrolls away with the page, so sections land a small breath below the viewport top.
+  headerOffset() { return 20; }
+  // Contato is short and closes the page, so its top can never reach the top of the screen.
+  // Its links land with Certificados centered instead (Contato right below it), within the part of
+  // the screen the nav capsule doesn't cover (on phones it floats at the bottom). If Certificados
+  // doesn't fit (e.g. a phone in landscape), it scrolls to Contato like the other links do.
+  contactScrollTop() {
+    const cert = document.getElementById('certificados'), contato = document.getElementById('contato');
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const header = document.querySelector('header');
+    const hr = header && getComputedStyle(header).position === 'fixed' ? header.getBoundingClientRect() : null;
+    const viewH = hr && hr.top > window.innerHeight / 2 ? hr.top : window.innerHeight;
+    const r = cert && cert.getBoundingClientRect(), gap = this.headerOffset();
+    const y = r && r.height + 2 * gap <= viewH ? r.top + r.height / 2 - viewH / 2 : contato.getBoundingClientRect().top - gap + 1;
+    return Math.max(0, Math.min(max, window.scrollY + y));
+  }
+  navTo(e) {
+    const href = e.currentTarget && e.currentTarget.getAttribute('href');
+    const el = href && href.startsWith('#') && document.querySelector(href);
+    if (!el) return;
+    e.preventDefault();
+    const top = href === '#inicio' ? 0 : href === '#contato' ? this.contactScrollTop() : el.getBoundingClientRect().top + window.scrollY - this.headerOffset() + 1;
+    window.scrollTo({ top, behavior: 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', href);
+    clearTimeout(this.navT);
+    this.navT = setTimeout(() => this.updateNav(), 700);
+  }
+  // Geometry of a nav link's text box (without its pill padding), relative to #nav-links.
+  linkBox(el) {
+    const cs = getComputedStyle(el), pl = parseFloat(cs.paddingLeft) || 0, pr = parseFloat(cs.paddingRight) || 0;
+    return { x: el.offsetLeft + pl, w: el.offsetWidth - pl - pr, px: el.offsetLeft, pw: el.offsetWidth };
+  }
+  // Sliding underline tracks the section under the capsule; the capsule also compacts and fills a progress line as you scroll.
+  updateNav() {
+    const h = this.headerOffset();
+    let active = null;
+    ['sobre', 'experiencia', 'contato'].forEach(id => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top - h <= 12) active = id; });
+    // Contato's link lands short of the page bottom (see contactScrollTop), so it's active from there down.
+    if (document.getElementById('contato') && window.scrollY >= this.contactScrollTop() - 2) active = 'contato';
+    const link = active && document.getElementById('nav-' + active);
+    const prev = this.state.nav || {};
+    const box = link ? this.linkBox(link) : null;
+    const next = { active, x: box ? box.x : (prev.x || 0), w: box ? box.w : (prev.w || 0) };
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(100, Math.round(window.scrollY / max * 200) / 2) : 0;
+    const scrolled = window.scrollY > 48;
+    const showTop = window.scrollY > Math.max(520, window.innerHeight * 0.8);
+    if (prev.active !== next.active || prev.x !== next.x || prev.w !== next.w || progress !== this.state.progress || scrolled !== this.state.scrolled || showTop !== this.state.showTop) this.setState({ nav: next, progress, scrolled, showTop });
+  }
+  cvUrl() { return this.props.cvUrl ?? 'docs/curriculo-gustavo-de-souza.pdf'; }
+  downloadCv(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (this.state.cv !== 'idle') return;
+    const url = this.cvUrl();
+    const started = Date.now();
+    this.setState({ cv: 'loading' });
+    fetch(url, { cache: 'force-cache' }).then(r => r.ok).catch(() => false).then(ok => {
+      const wait = Math.max(0, 1500 - (Date.now() - started));
+      setTimeout(() => {
+        if (ok) {
+          const a = document.createElement('a');
+          a.href = url; a.download = ''; a.rel = 'noreferrer';
+          document.body.appendChild(a); a.click(); a.remove();
+        }
+        this.setState({ cv: ok ? 'done' : 'missing' });
+        if (ok && this.state.cvAsk) setTimeout(() => this.setState({ cvAsk: false }), 1500);
+        setTimeout(() => this.setState({ cv: 'idle' }), 2600);
+      }, wait);
+    });
+  }
+  cvButtonEl(anim, t) {
+    const st = this.state.cv;
+    const hov = this.state.cvHover && st === 'idle';
+    const h = React.createElement;
+    const arrow = h('span', { key: 'arrow', style: { position: 'relative', width: 16, height: 16, display: 'inline-block', overflow: 'hidden' } },
+      h('svg', { width: 16, height: 16, viewBox: '0 0 16 16', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round', style: { position: 'absolute', inset: 0, display: 'block', transition: 'transform .35s cubic-bezier(.2,.7,.2,1)', transform: hov ? 'translateY(2px)' : 'none', animation: st === 'loading' && anim ? 'arrowDrop .9s cubic-bezier(.4,0,.6,1) infinite' : 'none' } },
+        h('path', { d: 'M8 2.5v8' }), h('path', { d: 'M4.5 7l3.5 3.5L11.5 7' })),
+      h('svg', { width: 16, height: 16, viewBox: '0 0 16 16', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', style: { position: 'absolute', inset: 0, display: 'block', opacity: .9 } },
+        h('path', { d: 'M3 13.5h10' })));
+    const check = h('svg', { key: 'check', width: 16, height: 16, viewBox: '0 0 16 16', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round', style: { display: 'block', animation: anim ? 'popIn .35s cubic-bezier(.2,.8,.2,1.2) both' : 'none' } },
+      h('path', { d: 'M3.5 8.5l3 3 6-7', style: { strokeDasharray: 18, strokeDashoffset: anim ? 18 : 0, animation: anim ? 'drawCheck .45s ease-out .15s forwards' : 'none' } }));
+    const dots = st === 'loading'
+      ? h('span', { key: 'dots', style: { display: 'inline-flex', gap: 3, marginLeft: 2 } }, [0, 1, 2].map(i => h('span', { key: i, style: { width: 3, height: 3, borderRadius: 999, background: 'currentColor', animation: anim ? 'dotPulse 1.2s ease-in-out ' + (i * 0.18) + 's infinite' : 'none' } })))
+      : null;
+    const label = { idle: t.cvIdle, loading: t.cvLoading, done: t.cvDone, missing: t.cvMissing }[st];
+    const fill = (st === 'loading' || st === 'done')
+      ? h('span', { key: 'fill', style: { position: 'absolute', inset: 0, borderRadius: 999, background: 'var(--fill)', transformOrigin: 'left center', transform: st === 'done' ? 'none' : 'scaleX(0)', animation: st === 'loading' && anim ? 'fillSweep 1.5s cubic-bezier(.3,.5,.2,1) forwards' : 'none' } })
+      : null;
+    const sheen = st === 'loading' && anim
+      ? h('span', { key: 'sheen', style: { position: 'absolute', top: 0, bottom: 0, left: 0, width: '35%', background: 'linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.22),rgba(255,255,255,0))', animation: 'sheen 1.1s ease-in-out .25s infinite' } })
+      : null;
+    const ring = st === 'done' && anim
+      ? h('span', { key: 'ring', style: { position: 'absolute', inset: 0, borderRadius: 999, animation: 'ringOut .8s ease-out forwards' } })
+      : null;
+    return h('span', { style: { position: 'static', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' } },
+      fill, sheen, ring,
+      h('span', { key: 'lbl-' + st + this.state.lang, style: { position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 9, animation: anim ? 'labelIn .35s cubic-bezier(.2,.7,.2,1) both' : 'none' } },
+        st === 'done' ? check : (st === 'missing' ? null : arrow), label, dots));
+  }
+  componentDidMount() {
+    this.applyTheme();
+    this.onScroll = () => { if (this.navRaf) return; this.navRaf = requestAnimationFrame(() => { this.navRaf = 0; this.updateNav(); }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.updateNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.updateNav());
+    this.onKey = e => { if (e.key === 'Escape' && (this.state.doc || this.state.cvAsk || this.state.langOpen)) this.setState({ doc: null, cvAsk: false, langOpen: false }); };
+    document.addEventListener('keydown', this.onKey);
+    this.onDocClick = e => { if (this.state.langOpen && !(e.target.closest && e.target.closest('[data-nav-lang]'))) this.setState({ langOpen: false }); };
+    document.addEventListener('click', this.onDocClick);
+    this.setupReveal();
+    this.mo = new MutationObserver(() => this.setupReveal());
+    this.mo.observe(document.body, { childList: true, subtree: true });
+    this.onVis = () => { if (document.hidden) this.revealAll(); };
+    document.addEventListener('visibilitychange', this.onVis);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    this.applyTheme();
+    if (!this.animOn()) this.revealAll();
+    if (prevState && prevState.lang !== this.state.lang) requestAnimationFrame(() => this.updateNav());
+  }
+  componentWillUnmount() {
+    if (this.mo) this.mo.disconnect();
+    if (this.io) this.io.disconnect();
+    clearTimeout(this.fb);
+    document.removeEventListener('visibilitychange', this.onVis);
+    document.removeEventListener('keydown', this.onKey);
+    document.removeEventListener('click', this.onDocClick);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+  }
+  openDoc(e, url, title, pdf, titleKey) {
+    if (e && e.preventDefault) e.preventDefault();
+    this.setState({ doc: { url, title, titleKey, pdf: pdf || url, isImage: /\.(png|jpe?g|webp)$/i.test(url) } });
+  }
+  scrollRail(dir) {
+    const rail = document.getElementById('cert-rail');
+    if (rail) rail.scrollBy({ left: dir * 288, behavior: 'smooth' });
+  }
+  certs(t) {
+    const list = [
+      ['Projeto de Extensão Universitária – Conquista Tech: Começa Aqui, Agora', 'Centro Universitário IBMR', { r: [8, 12], y: 2025 }, 200, 'cert-14', 'extensao-conquista-tech'],
+      ['Deploying web apps for new developers on AWS EC2', 'Udemy', { m: 7, y: 2025 }, 6, 'cert-05', 'aws-ec2-deploy'],
+      ['RabbitMQ: de A-Z com exemplos', 'Udemy', { m: 7, y: 2025 }, 1.5, 'cert-11', 'rabbitmq'],
+      ['Apache Kafka', 'Udemy', { m: 7, y: 2025 }, 4, 'cert-06', 'apache-kafka'],
+      ['NestJS Microservices: Build & Deploy a Scaleable Backend', 'Udemy', { m: 7, y: 2025 }, 10, 'cert-10', 'nestjs-microservices'],
+      ['Docker para Desenvolvedores (com Docker Swarm e Kubernetes)', 'Udemy', { m: 6, y: 2025 }, 12.5, 'cert-09', 'docker-desenvolvedores'],
+      ['JavaScript Unit Testing – The Practical Guide', 'Udemy', { m: 6, y: 2025 }, 5.5, 'cert-07', 'javascript-unit-testing'],
+      ['Gen AI Technical Certification', 'AI Revolution Company', { m: 4, y: 2025 }, null, 'cert-03', 'gen-ai-technical'],
+      ['AI-Assisted Certified Professional', 'AI Revolution Company', { m: 4, y: 2025 }, null, 'cert-01', 'ai-assisted-professional'],
+      ['The Absolute Beginners Guide to Cyber Security 2025 – Part 1', 'Udemy', { m: 4, y: 2025 }, 5, 'cert-02', 'cyber-security'],
+      ['Metodologias Ágeis (XP, Scrum, Lean e Kanban)', 'Udemy', { m: 4, y: 2025 }, 4, 'cert-04', 'metodologias-ageis'],
+      ['Pesquisa e Extensão – Iniciação científica no Ânima HUB (UC Hub 1329)', 'Ânima Hub Lab', { term: true }, 120, 'cert-12', 'anima-hub-pesquisa'],
+      ['PRO FIGMA | UI Design com Figma do Zero ao Especialista', 'Udemy', { m: 7, y: 2024 }, 18, 'cert-13', 'figma-ui-design']
+    ];
+    const M = t.months;
+    const when = d => d.term ? t.term2 : d.r ? M[d.r[0] - 1] + '–' + M[d.r[1] - 1] + ' ' + d.y : d.m ? M[d.m - 1] + ' ' + d.y : String(d.y);
+    const hrs = n => (this.state.lang === 'en' ? String(n) : String(n).replace('.', ',')) + 'h';
+    return list.map(([title, issuer, d, h, img, pdf]) => {
+      const imgUrl = 'img/certs/' + img + '.png', pdfUrl = 'docs/certs/' + pdf + '.pdf';
+      return { title, meta: [issuer, when(d), h ? t.duration + ': ' + hrs(h) : null].filter(Boolean).join(' · '), img: imgUrl, pdf: pdfUrl, open: () => this.openDoc(null, imgUrl, title, pdfUrl) };
+    });
+  }
+  animOn() {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return (this.props.animations ?? true) && !reduced && !document.hidden;
+  }
+  // Safety net: nothing may stay invisible if IO/rAF never deliver (hidden tab, capture passes).
+  scheduleFallback() {
+    clearTimeout(this.fb);
+    this.fb = setTimeout(() => {
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll('[data-reveal]').forEach(el => {
+        if (el.style.opacity !== '0') return;
+        const r = el.getBoundingClientRect();
+        if (document.hidden || (r.top < vh && r.bottom > 0)) { el.style.opacity = '1'; el.style.transform = 'none'; }
+      });
+    }, 1800);
+  }
+  revealAll() {
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.setAttribute('data-rv', '1');
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+  setupReveal() {
+    const els = document.querySelectorAll('[data-reveal]:not([data-rv])');
+    if (!els.length) return;
+    if (!this.animOn()) { this.revealAll(); return; }
+    if (!this.io) {
+      this.io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          this.io.unobserve(el);
+          el.style.transitionDelay = (+(el.getAttribute('data-reveal') || 0) * 100) + 'ms';
+          requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'none'; });
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+    }
+    els.forEach(el => {
+      el.setAttribute('data-rv', '1');
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(12px)';
+      el.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)';
+      void el.offsetWidth;
+      this.io.observe(el);
+    });
+    this.scheduleFallback();
+  }
+  renderVals() {
+    const anim = this.animOn();
+    const t = this.t();
+    const lang = this.state.lang;
+    const title = this.props.heroTitle ?? 'Gustavo de Souza';
+    const words = title.split(' ');
+    // Letters settle in (blur → sharp), then a slow sage "ink" ripple and a 2px drift travel across the name forever; hover sends a quick lift wave.
+    let li = 0;
+    const hov = this.state.nameHover;
+    const letterStyle = gi => ({
+      display: 'inline-block', willChange: 'transform, opacity',
+      animation: [
+        'letterIn .95s cubic-bezier(.2,.75,.15,1) ' + (0.1 + gi * 0.045).toFixed(3) + 's both',
+        'inkShimmer 6s ease-in-out ' + (1.5 + gi * 0.16).toFixed(2) + 's infinite',
+        'drift 6s ease-in-out ' + (1.5 + gi * 0.16).toFixed(2) + 's infinite',
+        hov ? 'lift .7s cubic-bezier(.2,.8,.2,1) ' + (gi * 0.03).toFixed(2) + 's' : null
+      ].filter(Boolean).join(', ')
+    });
+    const heroTitle = anim
+      ? React.createElement('span', { style: { display: 'inline' } }, words.flatMap((w, i) => [
+          React.createElement('span', { key: 'w' + i, style: { display: 'inline-block', whiteSpace: 'nowrap' } },
+            Array.from(w).map((ch, j) => React.createElement('span', { key: j, style: letterStyle(li++) }, ch))),
+          i < words.length - 1 ? ' ' : null
+        ]))
+      : title;
+    const doc = this.state.doc;
+    const docTitle = doc ? (doc.titleKey ? t[doc.titleKey] : doc.title) : '';
+    const n = this.state.nav || {};
+    const dark = this.state.theme === 'dark';
+    const subj = encodeURIComponent(t.mailSubject);
+    const certs = this.certs(t);
+    return {
+      heroTitle, t, langCode: t.code,
+      isPt: lang === 'pt', isEn: lang === 'en', isEs: lang === 'es',
+      ptBg: lang === 'pt' ? 'var(--chip)' : 'transparent', enBg: lang === 'en' ? 'var(--chip)' : 'transparent', esBg: lang === 'es' ? 'var(--chip)' : 'transparent',
+      ptChk: lang === 'pt' ? 1 : 0, enChk: lang === 'en' ? 1 : 0, esChk: lang === 'es' ? 1 : 0,
+      curFlagImg: React.createElement('img', { key: lang, src: 'https://flagcdn.com/w40/' + ({ pt: 'br', en: 'us', es: 'es' })[lang] + '.png', alt: '', width: 18, height: 18, onError: e => { e.target.style.display = 'none'; }, style: { display: 'block', width: 18, height: 18, borderRadius: '50%', objectFit: 'cover', boxShadow: '0 0 0 1px var(--line-2)' } }),
+      curCode: lang.toUpperCase(),
+      langOpen: !!this.state.langOpen,
+      chevRot: this.state.langOpen ? 'rotate(180deg)' : 'none',
+      toggleLang: () => this.setState({ langOpen: !this.state.langOpen }),
+      setPt: () => this.setLang('pt'), setEn: () => this.setLang('en'), setEs: () => this.setLang('es'),
+      toggleTheme: () => this.setTheme(dark ? 'light' : 'dark'),
+      // Sun (filled disc with a ring) morphs into a crescent via inset shadow.
+      themeIcon: React.createElement('span', { 'aria-hidden': true, style: { display: 'block', width: 12, height: 12, borderRadius: '50%', background: dark ? 'transparent' : 'currentColor', boxShadow: dark ? 'inset -4px -2.5px 0 0 currentColor' : '0 0 0 2px var(--surface), 0 0 0 3.5px currentColor', transform: dark ? 'rotate(-20deg) scale(1.1)' : 'scale(.78)', transition: 'background .4s ease, box-shadow .4s ease, transform .5s cubic-bezier(.2,.7,.2,1)' } }),
+      cvUrl: this.cvUrl(),
+      cvButton: this.cvButtonEl(anim, t),
+      downloadCv: e => this.downloadCv(e),
+      ctaHoverOn: () => this.setState({ ctaHover: true }),
+      ctaHoverOff: () => this.setState({ ctaHover: false }),
+      ctaArrow: React.createElement('svg', { width: 14, height: 14, viewBox: '0 0 14 14', fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', style: { display: 'block', transform: this.state.ctaHover ? 'translateX(3px)' : 'none', transition: 'transform .35s cubic-bezier(.2,.7,.2,1)' } },
+        React.createElement('path', { d: 'M2.5 7h9' }), React.createElement('path', { d: 'M7.5 3l4 4-4 4' })),
+      nameHoverOn: () => this.setState({ nameHover: true }),
+      nameHoverOff: () => this.setState({ nameHover: false }),
+      cvHoverOn: () => this.setState({ cvHover: true }),
+      cvHoverOff: () => this.setState({ cvHover: false }),
+      docOpen: !!doc,
+      docUrl: doc ? doc.url : '',
+      docPdf: doc ? doc.pdf : '',
+      docTitle,
+      docIsImage: !!(doc && doc.isImage),
+      docImg: doc && doc.isImage ? React.createElement('img', { src: doc.url, alt: docTitle, style: { display: 'block', maxWidth: '100%', height: 'auto', borderRadius: 6, boxShadow: '0 14px 36px -18px rgba(0,0,0,.45)' } }) : null,
+      docIsPdf: !!(doc && !doc.isImage),
+      certs,
+      certSubtitle: t.certSub.replace('{n}', certs.length),
+      cvAsk: this.state.cvAsk,
+      askCv: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ cvAsk: true }); },
+      closeCv: () => this.setState({ cvAsk: false }),
+      navTo: e => this.navTo(e),
+      navIndicator: React.createElement('span', { 'aria-hidden': true, style: { position: 'absolute', left: 0, bottom: 3, height: 2, borderRadius: 2, background: 'var(--sage)', width: n.w || 0, transform: 'translateX(' + (n.x || 0) + 'px)', opacity: n.active ? 1 : 0, transition: 'transform .55s cubic-bezier(.2,.7,.2,1), width .55s cubic-bezier(.2,.7,.2,1), opacity .35s ease', pointerEvents: 'none' } }),
+      // Soft pill that glides under whichever link is hovered (last position kept while fading out).
+      hoverPill: (() => {
+        const id = this.state.navHover;
+        const el = id && document.getElementById('nav-' + id);
+        if (el) { const b = this.linkBox(el); this.hp = { x: b.px, w: b.pw }; }
+        const hp = this.hp || { x: 0, w: 0 };
+        return React.createElement('span', { 'aria-hidden': true, style: { position: 'absolute', top: 0, bottom: 0, left: 0, width: hp.w, borderRadius: 999, background: 'var(--chip)', transform: 'translateX(' + hp.x + 'px)', opacity: el ? 1 : 0, transition: 'transform .4s cubic-bezier(.2,.7,.2,1), width .4s cubic-bezier(.2,.7,.2,1), opacity .3s ease', pointerEvents: 'none' } });
+      })(),
+      hoverSobre: () => this.setState({ navHover: 'sobre' }),
+      hoverExperiencia: () => this.setState({ navHover: 'experiencia' }),
+      hoverContato: () => this.setState({ navHover: 'contato' }),
+      navLeave: () => this.setState({ navHover: null }),
+      toTop: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); if (history.replaceState) history.replaceState(null, '', '#inicio'); },
+      topOp: this.state.showTop ? 1 : 0,
+      topTf: this.state.showTop ? 'translateY(0) scale(1)' : 'translateY(16px) scale(.9)',
+      topPe: this.state.showTop ? 'auto' : 'none',
+      topHidden: !this.state.showTop,
+      topHoverOn: () => this.setState({ topHover: true }),
+      topHoverOff: () => this.setState({ topHover: false }),
+      // Ring fills with reading progress; the arrow breathes upward, and on hover one arrow leaves through the top while another arrives from below.
+      topIcon: (() => {
+        const C = 2 * Math.PI * 26, p = Math.max(0, Math.min(100, this.state.progress || 0)), th = !!this.state.topHover;
+        const arrow = (key, tf) => React.createElement('svg', { key, width: 20, height: 20, viewBox: '0 0 20 20', fill: 'none', stroke: 'currentColor', strokeWidth: 1.9, strokeLinecap: 'round', strokeLinejoin: 'round', style: { position: 'absolute', inset: 0, display: 'block', transform: tf, transition: 'transform .45s cubic-bezier(.2,.8,.2,1)' } },
+          React.createElement('path', { d: 'M10 16.5V4' }), React.createElement('path', { d: 'M4.5 9.5L10 4l5.5 5.5' }));
+        return React.createElement('span', { style: { position: 'relative', display: 'grid', placeItems: 'center', width: '100%', height: '100%' } },
+          React.createElement('svg', { 'aria-hidden': true, width: 58, height: 58, viewBox: '0 0 58 58', style: { position: 'absolute', inset: 0, transform: 'rotate(-90deg)' } },
+            React.createElement('circle', { cx: 29, cy: 29, r: 26, fill: 'none', stroke: 'var(--line-2)', strokeWidth: 2 }),
+            React.createElement('circle', { cx: 29, cy: 29, r: 26, fill: 'none', stroke: 'var(--sage)', strokeWidth: 2.5, strokeLinecap: 'round', strokeDasharray: C, strokeDashoffset: C * (1 - p / 100), style: { transition: 'stroke-dashoffset .35s ease-out' } })),
+          React.createElement('span', { style: { position: 'relative', width: 20, height: 20, overflow: 'hidden', display: 'block', animation: anim && this.state.showTop && !th ? 'nudgeUp 3s ease-in-out 1s infinite' : 'none' } },
+            arrow('a', th ? 'translateY(-24px)' : 'translateY(0)'),
+            arrow('b', th ? 'translateY(0)' : 'translateY(24px)')));
+      })(),
+      gmailUrl: 'https://mail.google.com/mail/?view=cm&fs=1&to=gustavodsouzaa@gmail.com&su=' + subj,
+      outlookUrl: 'https://outlook.live.com/mail/0/deeplink/compose?to=gustavodsouzaa@gmail.com&subject=' + subj,
+      copyLabel: this.state.copied ? t.copied : t.copyEmail,
+      copyEmail: () => {
+        const done = () => { this.setState({ copied: true }); clearTimeout(this.cpT); this.cpT = setTimeout(() => this.setState({ copied: false }), 1800); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText('gustavodsouzaa@gmail.com').then(done, done); else done();
+      },
+      railPrev: () => this.scrollRail(-1),
+      railNext: () => this.scrollRail(1),
+      openDiploma: e => this.openDoc(e, 'docs/diploma-ibmr.pdf', '', null, 'diplomaTitle'),
+      openCertificado: e => this.openDoc(e, 'docs/certificado-compass-uol.pdf', '', null, 'uolCertTitle'),
+      closeDoc: () => this.setState({ doc: null }),
+      stop: e => e.stopPropagation(),
+      hideImg: e => { e.target.style.display = 'none'; }
+    };
+  }
+}
+</script>
+</body>
+</html>

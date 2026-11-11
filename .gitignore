@@ -1,0 +1,14 @@
+node_modules/
+
+# Arquivos brutos enviados ao Claude Design (prints, foto do WhatsApp, PDFs duplicados).
+# O site usa só as versões em img/ e docs/ — isto não pode ir para o ar.
+uploads/
+
+# Diploma: o PDF mostra RG e data de nascimento. Fica só no computador até existir
+# uma versão com esses dados cobertos (o link "Ver diploma" foi tirado do site).
+docs/diploma-ibmr.pdf
+
+# Rascunho antigo (v1) e arquivos internos do Claude Design, que o site não usa.
+Portfolio Gustavo.dc.html
+.image-slots.state.json
+.thumbnail
