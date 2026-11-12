@@ -1,0 +1,8 @@
+# Arquivos binários: o Git nunca deve mexer nas quebras de linha deles (um PDF pequeno sem
+# bytes nulos, como o currículo, seria tratado como texto e corrompido num checkout no Windows).
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.ico  binary
