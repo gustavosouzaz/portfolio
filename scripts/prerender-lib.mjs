@@ -1,4 +1,4 @@
-// Shared by prerender.mjs and check-prerender.mjs.
+// Shared by prerender.mjs and build.mjs.
 import { createHash } from 'node:crypto';
 
 const BLOCK_RE = /<!-- prerender:start(?: sha256=[0-9a-f]{64})? -->[\s\S]*?<!-- prerender:end -->/;

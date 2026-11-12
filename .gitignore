@@ -12,3 +12,6 @@ docs/diploma-ibmr.pdf
 Portfolio Gustavo.dc.html
 .image-slots.state.json
 .thumbnail
+
+# Saída do build (o Vercel gera de novo a cada deploy).
+public/

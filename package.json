@@ -7,7 +7,7 @@
     "dev": "browser-sync start --config bs-config.js",
     "start": "browser-sync start --config bs-config.js",
     "prerender": "node scripts/prerender.mjs",
-    "build": "node scripts/check-prerender.mjs"
+    "build": "node scripts/build.mjs"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4"
